@@ -1,0 +1,106 @@
+$yellow-color: #FFE800;
+$bg-primary: #23232e;
+$bg-secondary: #141418;
+
+body{
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+::-webkit-scrollbar-thumb {
+  background: $bg-primary;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $bg-secondary;
+}
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 999;
+  color: white;
+  background: $bg-primary;
+  transition: background .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .navbar__logo{
+    color: $yellow-color;
+    font-family: Graffity;
+    font-size: 26px;
+  }
+  .navbar__menu{
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    svg{
+      fill: $yellow-color;
+    }
+    &:hover{
+      background: $bg-secondary;
+    }
+  }
+}
+.navbar__container{
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  z-index: 1;
+  transform: translateY(-70px);
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  transition: transform .5s;
+  .navbar__item{
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: Graffity;
+    background: linear-gradient($bg-primary,$bg-secondary);
+    cursor: pointer;
+    .navbar__item--text{
+      position: absolute;
+      z-index: 1;
+    }
+    .navbar__item--hover{
+      width: 100%;
+      height: 100%;
+      background: $bg-secondary;
+      position: absolute;
+      transform: translateY(70px);
+    }
+    &:hover{
+      .navbar__item--hover{
+        transform: translateY(0);
+        transition: 0.4s;
+      }
+    }
+  }
+  .navbar__item--lower{
+    color: $yellow-color;
+    background: rgba(0,0,0, 0.2);
+  }
+}
+@media screen and (max-width: 600px){
+
+}
+@font-face {
+  font-family: Graffity;
+  src: url("../fonts/13891.ttf");
+}
